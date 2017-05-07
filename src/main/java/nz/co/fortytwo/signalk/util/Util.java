@@ -214,8 +214,8 @@ public class Util {
         // Instrument ofsets, adjustments, display units
         model.getFullData().put(ConfigConstants.SURFACE_TO_TRANSDUCER, 0.5); 
         model.getFullData().put(ConfigConstants.TRANSDUCER_TO_KEEL, 1.5); 
-        model.getFullData().put(ConfigConstants.SOG_DISPLAY_UNIT, "kt");
-        model.getFullData().put(ConfigConstants.STW_DISPLAY_UNIT, "kt");
+        model.getFullData().put(ConfigConstants.SOG_DISPLAY_UNIT, "Kt");
+        model.getFullData().put(ConfigConstants.STW_DISPLAY_UNIT, "Kt");
         model.getFullData().put(ConfigConstants.DEPTH_USER_UNIT, "ft");
         model.getFullData().put(ConfigConstants.DEPTH_ALARM_METHOD, "visual");
         model.getFullData().put(ConfigConstants.DEPTH_WARN_METHOD, "visual");

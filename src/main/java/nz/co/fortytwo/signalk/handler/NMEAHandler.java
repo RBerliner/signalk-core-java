@@ -320,24 +320,9 @@ public class NMEAHandler {
 
                     if (evt.getSentence() instanceof VHWSentence) {
                         VHWSentence sen = (VHWSentence) evt.getSentence();
-//                        //VHW sentence types have both, but true can be empty
-//                        try {
-//                            src.getModel().put(vessels_dot_self_dot + SignalKConstants.nav_headingMagnetic, Math.toRadians(sen.getMagneticHeading()), src.getSourceRef(), src.getNow());
-//                        	logger.info("vhwCOGM: "+sen.getHeading());
-//                        } catch (DataNotAvailableException e) {
-//                            // These are really not errors
-//                            // logger.error(e.getMessage());
-//                        }
-//                        try {
-//                        	src.getModel().put(vessels_dot_self_dot + nav_courseOverGroundTrue, Math.toRadians(sen.getHeading()), src.getSourceRef(), src.getNow());
-//                        	logger.info("vhwCOGT: "+sen.getHeading());
-//                        } catch (DataNotAvailableException e) {
-//                            // These are really not errors
-//                            // logger.error(e.getMessage());
-//                        }
                         try {
-                            src.getModel().put(vessels_dot_self_dot + SignalKConstants.nav_speedThroughWater, sen.getSpeedKnots(), src.getSourceRef(), src.getNow());
-                            previousSOW = Util.movingAverage(ALPHA, previousSOW, sen.getSpeedKnots());
+                            previousSOW = Util.movingAverage(ALPHA, previousSOW, Util.kntToMs(sen.getSpeedKnots()));
+                            src.getModel().put(vessels_dot_self_dot + SignalKConstants.nav_speedThroughWater, previousSOW, src.getSourceRef(), src.getNow());
                             logger.info("vhwSOW: " + sen.getSpeedKnots());
                         } catch (DataNotAvailableException e) {
                             // These are really not errors

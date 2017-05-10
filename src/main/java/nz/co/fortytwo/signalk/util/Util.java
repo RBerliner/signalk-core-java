@@ -225,14 +225,14 @@ public class Util {
         model.getFullData().put(ConfigConstants.ENGINE_TEMP_WARN_METHOD, "visual");
 
         // construct the engine temperature zones
-        Json alarmZone = Json.object("lower", "190", "upper", "250", "state", "alarm", "message", "Danger");
-        Json warnZone = Json.object("lower", "180", "upper", "190", "state", "warn", "message", "Shallow Water");
+        Json alarmZone = Json.object("lower", "190", "upper", "250", "state", "alarm", "message", "Engine Overtemperature");
+        Json warnZone = Json.object("lower", "180", "upper", "190", "state", "warn", "message", "Engine Warm");
         Json normalZone = Json.object("lower", "0", "upper", "180", "state", "normal", "message", "");
         Json zones = Json.array(alarmZone, warnZone, normalZone);
         model.getFullData().put(ConfigConstants.ENGINE_TEMP_ALARM_ZONES, zones);
 
-        alarmZone = Json.object("lower", "0.0", "upper", "6.0", "state", "alarm", "message", "Engine Overtemperature");
-        warnZone = Json.object("lower", "6.0", "upper", "9.0", "state", "warn", "message", "Engine Warm");
+        alarmZone = Json.object("lower", "0.0", "upper", "6.0", "state", "alarm", "message", "Danger");
+        warnZone = Json.object("lower", "6.0", "upper", "9.0", "state", "warn", "message", "Shallow Water");
         normalZone = Json.object("lower", "1.65", "upper", "9999", "state", "normal", "message", "");
         zones = Json.array(alarmZone, warnZone, normalZone);
         model.getFullData().put(ConfigConstants.DEPTH_ALARM_ZONES, zones);

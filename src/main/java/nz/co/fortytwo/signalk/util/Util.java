@@ -212,6 +212,7 @@ public class Util {
         model.getFullData().put(ConfigConstants.START_STOMP, true);
 
         // Instrument ofsets, adjustments, display units
+        model.getFullData().put(ConfigConstants.COMPASS_OFFSET, 10.);
         model.getFullData().put(ConfigConstants.SURFACE_TO_TRANSDUCER, 0.5); 
         model.getFullData().put(ConfigConstants.TRANSDUCER_TO_KEEL, 1.5); 
         model.getFullData().put(ConfigConstants.SOG_DISPLAY_UNIT, "Kt");
@@ -230,8 +231,8 @@ public class Util {
         Json zones = Json.array(alarmZone, warnZone, normalZone);
         model.getFullData().put(ConfigConstants.ENGINE_TEMP_ALARM_ZONES, zones);
 
-        alarmZone = Json.object("lower", "0.0", "upper", "6.0", "state", "alarm", "message", "Danger");
-        warnZone = Json.object("lower", "6.0", "upper", "9.0", "state", "warn", "message", "Shallow Water");
+        alarmZone = Json.object("lower", "0.0", "upper", "6.0", "state", "alarm", "message", "Engine Overtemperature");
+        warnZone = Json.object("lower", "6.0", "upper", "9.0", "state", "warn", "message", "Engine Warm");
         normalZone = Json.object("lower", "1.65", "upper", "9999", "state", "normal", "message", "");
         zones = Json.array(alarmZone, warnZone, normalZone);
         model.getFullData().put(ConfigConstants.DEPTH_ALARM_ZONES, zones);

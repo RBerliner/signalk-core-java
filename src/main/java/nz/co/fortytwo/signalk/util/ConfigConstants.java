@@ -132,6 +132,7 @@ public class ConfigConstants {
 	public static final String JOLOKIA_WAR = "config.jolokia.war";
         
         //Instrument Offsets, Display Units, Adjustments
+        public static final String COMPASS_OFFSET = "config.navigation.meta.compassOffset";
         public static final String SURFACE_TO_TRANSDUCER = "config.environment.depth.surfaceToTransducer";
         public static final String TRANSDUCER_TO_KEEL = "config.environment.depth.transducerToKeel";
         public static final String SOG_DISPLAY_UNIT = "config.navigation.meta.sogDisplayUnit";

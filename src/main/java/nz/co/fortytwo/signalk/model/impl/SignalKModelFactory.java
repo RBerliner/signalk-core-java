@@ -62,8 +62,9 @@ public class SignalKModelFactory {
     private static String rootPath = "";
 
     static {
-        // lolgger is not initialized until after these statements are
-        // executedSystem.out.println("SignalKModelFactory static block");
+        // lgger is not initialized until after these statements are
+        // executed
+        //System.out.println("Checking maven profiles");
         rootPath = Util.getRootPath();
         if (signalKModel == null) {
             signalKModel = new SignalKModelImpl();
@@ -362,6 +363,12 @@ public class SignalKModelFactory {
                     newZones);
             }
         }
+        
+        if (model.get(ConfigConstants.COMPASS_OFFSET) != null) {
+            model.getFullData().put(SignalKConstants.vessels_dot_self_dot + SignalKConstants.nav_compassOffset,
+                model.get(ConfigConstants.COMPASS_OFFSET));
+        }
+        
 
         if (model.get(ConfigConstants.SOG_DISPLAY_UNIT) != null) {
             model.getFullData().put(SignalKConstants.vessels_dot_self_dot + SignalKConstants.nav_sogDisplayUnit,

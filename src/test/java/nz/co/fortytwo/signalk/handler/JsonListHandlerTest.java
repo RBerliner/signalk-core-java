@@ -54,10 +54,7 @@ public class JsonListHandlerTest {
 		Json reply = processor.handle(json);
 		assertNotNull(reply);
 		logger.debug(reply);
-//		assertEquals(79,reply.asList().size());
-                //  changed to 81 following the addition of navigation.meta.sogDisplayUnit", and 
-                //                                           navigation.meta.stwDisplayUnit" keys
-		assertEquals(104,reply.asList().size());
+		assertEquals(105,reply.asList().size());
 	}
 	
 	@Test

@@ -424,6 +424,7 @@ public class SignalKConstants {
 	public static final String mmsi="mmsi";
 	public static final String name="name";
 	public static final String nav="navigation";
+        public static final String nav_compassOffset = "navigation.meta.compassOffset";
 	public static final String nav_anchor="navigation.anchor";
 	public static final String nav_anchor_currentRadius="navigation.anchor.currentRadius";
 	public static final String nav_anchor_maxRadius="navigation.anchor.maxRadius";

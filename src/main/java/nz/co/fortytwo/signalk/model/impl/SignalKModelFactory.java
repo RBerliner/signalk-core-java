@@ -244,17 +244,16 @@ public class SignalKModelFactory {
             String engineTempUserUnit = (String) model.get(ConfigConstants.ENGINE_TEMP_USER_UNIT);
             model.getFullData().put(SignalKConstants.vessels_dot_self_dot + SignalKConstants.propulsion_engine_coolantTemperature_meta_unit,
                 model.get(ConfigConstants.ENGINE_TEMP_USER_UNIT));
-        
 
-        Double upper = new Double(0);
-        Double lower = new Double(0);
+            Double upper = new Double(0);
+            Double lower = new Double(0);
             if (model.get(ConfigConstants.ENGINE_TEMP_ALARM_ZONES) != null) {
                 Json zones = Json.read(model.get(ConfigConstants.ENGINE_TEMP_ALARM_ZONES).toString());
                 Json jArrayElem;
                 // Set the zones for alarm (0) and warn (1)
                 for (int i = 0; i < zones.asList().size(); i++) {
                     jArrayElem = zones.at(i);
-                    
+
                     // switch from user units to SignalK units
                     switch (engineTempUserUnit) {
                         case SignalKConstants.CENT:
@@ -282,6 +281,13 @@ public class SignalKModelFactory {
                     + SignalKConstants.zones,
                     newZones);
             }
+        }
+
+        // insert the number of sparkline points into the model
+        if (model.get(ConfigConstants.DEPTH_SPARKLINE_POINTS) != null) {
+            double points = ((Double) model.get(ConfigConstants.DEPTH_SPARKLINE_POINTS)).doubleValue();
+            model.put(SignalKConstants.vessels_dot_self_dot + SignalKConstants.env_depth_meta_sparklinePoints, points,
+                self);
         }
 
         // insert surfaceToTranducer, transducerToKeel and depth zones  into model
@@ -363,12 +369,11 @@ public class SignalKModelFactory {
                     newZones);
             }
         }
-        
+
         if (model.get(ConfigConstants.COMPASS_OFFSET) != null) {
             model.getFullData().put(SignalKConstants.vessels_dot_self_dot + SignalKConstants.nav_compassOffset,
                 model.get(ConfigConstants.COMPASS_OFFSET));
         }
-        
 
         if (model.get(ConfigConstants.SOG_DISPLAY_UNIT) != null) {
             model.getFullData().put(SignalKConstants.vessels_dot_self_dot + SignalKConstants.nav_sogDisplayUnit,

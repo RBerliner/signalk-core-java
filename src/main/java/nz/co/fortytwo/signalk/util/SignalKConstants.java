@@ -369,7 +369,8 @@ public class SignalKConstants {
 	public static final String env_depth_alarmMethod = "environment.depth.belowSurface.meta.alarmMethod";
 	public static final String env_depth_warnMethod = "environment.depth.belowSurface.meta.warnMethod";
 	public static final String env_depth_meta_userUnit = "environment.depth.meta.userUnit";
-	public static final String env_heave="environment.heave";
+	public static final String env_depth_meta_sparklinePoints = "environment.depth.meta.sparklinePoints";
+        public static final String env_heave="environment.heave";
 	public static final String env_inside="environment.inside";
 	public static final String env_inside_engineRoom="environment.inside.engineRoom";
 	public static final String env_inside_engineRoom_temperature="environment.inside.engineRoom.temperature";

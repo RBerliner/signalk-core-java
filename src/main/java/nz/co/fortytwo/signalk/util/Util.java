@@ -213,6 +213,7 @@ public class Util {
 
         // Instrument ofsets, adjustments, display units
         model.getFullData().put(ConfigConstants.COMPASS_OFFSET, 10.);
+        model.getFullData().put(ConfigConstants.DEPTH_SPARKLINE_POINTS, 200);
         model.getFullData().put(ConfigConstants.SURFACE_TO_TRANSDUCER, 0.5); 
         model.getFullData().put(ConfigConstants.TRANSDUCER_TO_KEEL, 1.5); 
         model.getFullData().put(ConfigConstants.SOG_DISPLAY_UNIT, "Kt");

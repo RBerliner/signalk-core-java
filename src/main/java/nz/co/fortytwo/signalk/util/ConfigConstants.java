@@ -141,6 +141,7 @@ public class ConfigConstants {
         public static final String DEPTH_ALARM_ZONES = "config.environment.depth.meta.zones";
         public static final String DEPTH_WARN_METHOD = "config.environment.depth.meta.warnMethod";
         public static final String DEPTH_ALARM_METHOD = "config.environment.depth.meta.alarmMethod";
+        public static final String DEPTH_SPARKLINE_POINTS = "config.environment.depth.meta.sparklinePoints";
         public static final String ENGINE_TEMP_USER_UNIT = "config.propulsion.engine.coolantTemperature.meta.userUnit";
         public static final String ENGINE_TEMP_ALARM_ZONES = "config.propulsion.engine.coolantTemperature.meta.zones";
         public static final String ENGINE_TEMP_ALARM_METHOD = "config.propulsion.engine.coolantTemperature.meta.alarmMethod";

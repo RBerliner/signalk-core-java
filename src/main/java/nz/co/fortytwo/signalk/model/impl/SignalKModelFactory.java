@@ -283,16 +283,15 @@ public class SignalKModelFactory {
             }
         }
 
-        // insert the number of sparkline points into the model
+        // insert the sparkline parmeters into the model
         if (model.get(ConfigConstants.DEPTH_SPARKLINE_POINTS) != null) {
             double points = ((Double) model.get(ConfigConstants.DEPTH_SPARKLINE_POINTS)).doubleValue();
-            model.put(SignalKConstants.vessels_dot_self_dot + SignalKConstants.env_depth_meta_sparklinePoints, points,
+            model.put(SignalKConstants.vessels_dot_self_dot + SignalKConstants.env_depth_meta_sparkline_points, points,
                 self);
         }
 
-        // insert surfaceToTranducer, transducerToKeel and depth zones  into model
+        // insert surfaceToTranducer, transducerToKeel, sparklineMin and depth zones  into model
         // after converting from user units to SignalK units.
-
         if (model.get(ConfigConstants.DEPTH_USER_UNIT) != null) {
             String depthUserUnit = (String) model.get(ConfigConstants.DEPTH_USER_UNIT);
             model.getFullData().put(SignalKConstants.vessels_dot_self_dot + SignalKConstants.env_depth_meta_userUnit,
@@ -311,6 +310,22 @@ public class SignalKModelFactory {
                         break;
                 }
                 model.put(SignalKConstants.vessels_dot_self_dot + SignalKConstants.env_depth_surfaceToTransducer, offset,
+                    self);
+            }
+
+            if (model.get(ConfigConstants.DEPTH_SPARKLINE_MIN) != null) {
+                double min = ((Double) model.get(ConfigConstants.DEPTH_SPARKLINE_MIN)).doubleValue();
+                switch (depthUserUnit) {
+                    case SignalKConstants.M:
+                        break;
+                    case SignalKConstants.F:
+                        min /= SignalKConstants.MTR_TO_FATHOM;
+                        break;
+                    case SignalKConstants.FT:
+                        min /= SignalKConstants.MTR_TO_FEET;
+                        break;
+                }
+                model.put(SignalKConstants.vessels_dot_self_dot + SignalKConstants.env_depth_meta_sparkline_min, min,
                     self);
             }
 
